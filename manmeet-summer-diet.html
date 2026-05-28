@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>☀️ Manmeet Summer Diet — June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   RESET + ROOT
+══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sun:#f97316;--sun2:#fb923c;--sun3:#fed7aa;
+  --teal:#14b8a6;--teal2:#2dd4bf;
+  --gold:#eab308;--gold2:#fde047;
+  --red:#ef4444;--green:#22c55e;
+  --bg:#050a0e;--bg2:#090f15;--bg3:#0d1520;--bg4:#111e2e;
+  --card:#0d1824;--card2:#101e2c;
+  --border:rgba(249,115,22,.14);--border2:rgba(20,184,166,.14);
+  --text:#e8f4f2;--muted:#6b8fa8;--muted2:#4a6880;
+  --font:'Outfit',sans-serif;
+  --display:'Clash Display',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --r:1rem;--r2:1.5rem;--r3:2rem;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);overflow-x:hidden;cursor:none;
+  line-height:1.6;
+}
+::selection{background:rgba(249,115,22,.3);color:#fff}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--sun);border-radius:2px}
+
+/* ══════════════════════════════════════
+   CUSTOM CURSOR
+══════════════════════════════════════ */
+#cur,#cur2{position:fixed;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+#cur{width:10px;height:10px;background:var(--sun);transition:width .15s,height .15s,background .2s;mix-blend-mode:screen}
+#cur2{width:36px;height:36px;border:1.5px solid rgba(249,115,22,.5);transition:transform .12s ease-out,width .25s,height .25s}
+body:has(a:hover,button:hover,.clickable:hover) #cur{width:18px;height:18px;background:var(--teal2)}
+body:has(a:hover,button:hover,.clickable:hover) #cur2{width:52px;height:52px}
+
+/* ══════════════════════════════════════
+   LOADER
+══════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;background:var(--bg);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;
+  transition:opacity .6s ease,visibility .6s;
+}
+#loader.out{opacity:0;visibility:hidden}
+.loader-sun{
+  width:80px;height:80px;border-radius:50%;
+  background:radial-gradient(circle,var(--gold) 0%,var(--sun) 60%,transparent 100%);
+  animation:sunPulse 1.5s ease-in-out infinite,sunSpin 3s linear infinite;
+  position:relative;
+}
+.loader-sun::before{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:2px dashed rgba(249,115,22,.4);animation:spinSlow 4s linear infinite reverse;
+}
+.loader-text{font-family:var(--display);font-size:1.1rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.loader-bar{width:200px;height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
+.loader-fill{height:100%;background:linear-gradient(90deg,var(--sun),var(--teal2));width:0%;animation:loadFill 1.8s ease forwards}
+@keyframes loadFill{to{width:100%}}
+@keyframes sunPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes sunSpin{from{box-shadow:0 0 30px var(--sun)}to{box-shadow:0 0 60px var(--gold)}}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* ══════════════════════════════════════
+   CANVAS BACKGROUNDS
+══════════════════════════════════════ */
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.7}
+#vizCanvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:.9rem 3rem;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,10,14,.82);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(249,115,22,.1);
+  transition:all .3s;
+}
+.nav-logo{
+  font-family:var(--display);font-size:1.1rem;font-weight:700;
+  background:linear-gradient(135deg,var(--sun),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:flex;align-items:center;gap:.5rem;
+}
+.nav-logo::before{content:'☀️';font-size:1rem;-webkit-text-fill-color:initial}
+.nav-links{display:flex;gap:.3rem}
+.nav-links a{
+  padding:.38rem .85rem;border-radius:2rem;
+  font-size:.78rem;letter-spacing:.04em;color:var(--muted);
+  text-decoration:none;transition:all .2s;border:1px solid transparent;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:var(--sun);border-color:rgba(249,115,22,.25);
+  background:rgba(249,115,22,.08);
+}
+.nav-tag{
+  font-family:var(--mono);font-size:.7rem;
+  background:rgba(20,184,166,.12);border:1px solid rgba(20,184,166,.25);
+  color:var(--teal2);border-radius:2rem;padding:.3rem .8rem;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+#hero{
+  position:relative;height:100vh;min-height:700px;
+  display:flex;align-items:center;overflow:hidden;
+}
+.hero-inner{
+  position:relative;z-index:2;padding:0 3rem;max-width:900px;
+  animation:heroIn 1s ease both;
+}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);
+  border-radius:2rem;padding:.38rem 1rem;font-size:.75rem;
+  color:var(--sun2);margin-bottom:1.8rem;letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.hero-chip .dot{width:7px;height:7px;background:var(--sun);border-radius:50%;animation:blink 1.5s infinite}
+.hero-title{
+  font-family:var(--display);font-size:clamp(3rem,7vw,6rem);
+  font-weight:700;line-height:1.0;margin-bottom:1.2rem;
+}
+.hero-title .line-orange{
+  background:linear-gradient(135deg,var(--sun),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;
+}
+.hero-title .line-white{color:var(--text);display:block}
+.hero-title .line-muted{color:rgba(232,244,242,.4);display:block;font-size:.6em;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+.hero-sub{
+  font-size:1.05rem;color:var(--muted);max-width:560px;
+  margin-bottom:2.5rem;line-height:1.75;
+}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hstat{border-left:2px solid var(--sun);padding-left:1rem}
+.hstat-num{
+  font-family:var(--display);font-size:2.2rem;font-weight:700;display:block;
+  background:linear-gradient(135deg,var(--sun),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hstat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary,.btn-ghost{
+  padding:.75rem 2rem;border-radius:3rem;font-size:.88rem;font-weight:600;
+  cursor:pointer;transition:all .25s;border:none;font-family:var(--font);
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--sun),var(--gold));color:#0a0501;
+  box-shadow:0 8px 32px rgba(249,115,22,.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(249,115,22,.45)}
+.btn-ghost{
+  background:rgba(255,255,255,.04);color:var(--text);
+  border:1px solid rgba(255,255,255,.12);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(249,115,22,.35)}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  opacity:.5;animation:scrollBounce 2.5s infinite;
+}
+.hero-scroll span{font-size:.68rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.scroll-track{width:1px;height:50px;background:linear-gradient(to bottom,var(--sun),transparent)}
+
+/* ══════════════════════════════════════
+   SECTIONS BASE
+══════════════════════════════════════ */
+.section{padding:6rem 3rem;max-width:1400px;margin:0 auto}
+.section-full{padding:6rem 0}
+.section-full .inner{max-width:1400px;margin:0 auto;padding:0 3rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);
+  margin-bottom:.75rem;
+}
+.chip::before{content:'';width:20px;height:1.5px;background:var(--sun)}
+.section-title{font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-bottom:.5rem}
+.section-sub{color:var(--muted);font-size:.9rem;margin-bottom:2.5rem}
+
+/* ══════════════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.from-left{transform:translateX(-28px)}
+.reveal.from-right{transform:translateX(28px)}
+.reveal.visible.from-left,.reveal.visible.from-right{transform:translateX(0)}
+.stagger > *{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
+.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
+.stagger.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:.55s}
+.stagger.visible > *:nth-child(7){opacity:1;transform:none;transition-delay:.65s}
+
+/* ══════════════════════════════════════
+   GOAL SECTION — BIG NUMBERS
+══════════════════════════════════════ */
+#goal{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.goal-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:center}
+.goal-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.goal-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r2);
+  padding:1.5rem;position:relative;overflow:hidden;transition:all .3s;
+}
+.goal-card:hover{border-color:var(--sun);transform:translateY(-3px)}
+.goal-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sun),var(--gold));
+  transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.goal-card:hover::after{transform:scaleX(1)}
+.gc-icon{font-size:1.8rem;margin-bottom:.7rem}
+.gc-num{
+  font-family:var(--display);font-size:2rem;font-weight:700;display:block;margin-bottom:.2rem;
+  background:linear-gradient(135deg,var(--sun),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.gc-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+/* monthly milestones */
+.milestones{display:flex;flex-direction:column;gap:.8rem}
+.ms-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.2rem;border-radius:var(--r);
+  background:var(--card);border:1px solid rgba(255,255,255,.06);
+  transition:all .25s;cursor:default;
+}
+.ms-item:hover{border-color:var(--sun);background:rgba(249,115,22,.05)}
+.ms-dot{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;
+  font-family:var(--mono);
+}
+.ms-dot.achieved{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+.ms-dot.current{background:rgba(249,115,22,.15);color:var(--sun);border:1px solid rgba(249,115,22,.3);animation:pulseRing 2s infinite}
+.ms-dot.future{background:rgba(107,143,168,.1);color:var(--muted);border:1px solid rgba(107,143,168,.2)}
+.ms-month{font-size:.8rem;font-weight:600;color:var(--text)}
+.ms-kg{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.ms-bar-wrap{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.ms-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--sun),var(--gold))}
+
+/* ══════════════════════════════════════
+   BLOOD REPORT
+══════════════════════════════════════ */
+#blood{background:var(--bg3);border-top:1px solid rgba(239,68,68,.1);border-bottom:1px solid rgba(239,68,68,.1)}
+.blood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.bcard{
+  border-radius:var(--r2);padding:1.4rem;border-left:3px solid;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.bcard::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;
+  background:linear-gradient(135deg,rgba(255,255,255,.02),transparent);
+}
+.bcard:hover{transform:translateX(4px)}
+.bcard:hover::before{opacity:1}
+.bcard.critical{background:rgba(239,68,68,.06);border-color:#ef4444}
+.bcard.high{background:rgba(249,115,22,.06);border-color:var(--sun)}
+.bcard.moderate{background:rgba(234,179,8,.06);border-color:var(--gold)}
+.bcard.ok{background:rgba(20,184,166,.06);border-color:var(--teal)}
+.bc-badge{
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:.5rem;display:block;
+}
+.bcard.critical .bc-badge{color:#ef4444}
+.bcard.high .bc-badge{color:var(--sun)}
+.bcard.moderate .bc-badge{color:var(--gold)}
+.bcard.ok .bc-badge{color:var(--teal2)}
+.bc-marker{font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-family:var(--mono)}
+.bc-condition{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.bc-val{font-family:var(--display);font-size:1.5rem;font-weight:700;margin-bottom:.4rem}
+.bcard.critical .bc-val{color:#ef4444}
+.bcard.high .bc-val{color:var(--sun)}
+.bcard.moderate .bc-val{color:var(--gold)}
+.bcard.ok .bc-val{color:var(--teal2)}
+.bc-ref{font-size:.72rem;color:var(--muted2)}
+.bc-action{
+  font-size:.76rem;color:var(--muted);margin-top:.7rem;
+  padding-top:.7rem;border-top:1px solid rgba(255,255,255,.06);line-height:1.5;
+}
+
+/* ══════════════════════════════════════
+   CALORIE CYCLING
+══════════════════════════════════════ */
+.cal-viz-section{
+  position:relative;height:340px;overflow:hidden;
+  border-radius:var(--r2);background:var(--card);
+  border:1px solid var(--border);
+}
+.cal-day-bars{
+  display:flex;height:100%;align-items:flex-end;gap:3px;
+  padding:2rem 1.5rem 0;
+}
+.cal-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer}
+.cal-bar{
+  width:100%;border-radius:6px 6px 0 0;transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  position:relative;min-height:4px;
+}
+.cal-bar.low{background:linear-gradient(to top,rgba(239,68,68,.6),rgba(239,68,68,.3))}
+.cal-bar.normal{background:linear-gradient(to top,rgba(20,184,166,.7),rgba(20,184,166,.35))}
+.cal-bar.refeed{background:linear-gradient(to top,var(--gold),rgba(234,179,8,.4))}
+.cal-bar-label{font-size:.68rem;color:var(--muted);font-family:var(--mono);padding-bottom:.5rem}
+.cal-bar-val{
+  position:absolute;top:-1.6rem;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.65rem;white-space:nowrap;opacity:0;transition:opacity .2s;
+}
+.cal-bar-wrap:hover .cal-bar-val{opacity:1}
+.cal-bar-wrap:hover .cal-bar{filter:brightness(1.3)}
+.cal-legend{
+  position:absolute;top:1rem;right:1.5rem;
+  display:flex;gap:1.2rem;font-size:.72rem;
+}
+.cal-legend-item{display:flex;align-items:center;gap:.4rem;color:var(--muted)}
+.cal-legend-dot{width:8px;height:8px;border-radius:50%}
+.cal-avg{
+  position:absolute;top:1rem;left:1.5rem;
+  font-family:var(--mono);font-size:.72rem;color:var(--muted2);
+}
+.cal-avg strong{color:var(--sun)}
+/* macro rings */
+.macro-rings{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.mring{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.mring-wrap{position:relative;width:120px;height:120px}
+.mring-wrap canvas{width:120px!important;height:120px!important}
+.mring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.mring-num{font-family:var(--display);font-size:1.3rem;font-weight:700}
+.mring-unit{font-size:.62rem;color:var(--muted)}
+.mring-label{font-size:.75rem;color:var(--text);font-weight:500}
+.mring-sub{font-size:.68rem;color:var(--muted)}
+
+/* ══════════════════════════════════════
+   SUMMER PHILOSOPHY
+══════════════════════════════════════ */
+.summer-banner{
+  background:linear-gradient(135deg,rgba(249,115,22,.08),rgba(234,179,8,.05),rgba(5,10,14,0));
+  border:1px solid rgba(249,115,22,.18);border-radius:var(--r2);
+  padding:2.5rem;margin-bottom:2rem;position:relative;overflow:hidden;
+}
+.summer-banner::before{
+  content:'☀️';position:absolute;right:2rem;top:50%;transform:translateY(-50%);
+  font-size:6rem;opacity:.06;line-height:1;
+}
+.summer-banner h3{font-family:var(--display);font-size:1.4rem;font-weight:700;margin-bottom:1rem}
+.cooling-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem}
+.cooling-card{
+  background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.14);
+  border-radius:var(--r);padding:.9rem 1rem;transition:all .25s;cursor:default;
+}
+.cooling-card:hover{border-color:var(--teal);transform:scale(1.03)}
+.cool-name{font-size:.82rem;font-weight:600;color:var(--teal2);margin-bottom:.2rem}
+.cool-prop{font-size:.72rem;color:var(--muted)}
+.cool-cal{font-family:var(--mono);font-size:.68rem;color:var(--muted2)}
+
+/* ══════════════════════════════════════
+   MEALS SECTION
+══════════════════════════════════════ */
+.meal-tabs{display:flex;gap:.4rem;margin-bottom:2rem;flex-wrap:wrap}
+.meal-tab{
+  padding:.5rem 1.3rem;border-radius:2rem;border:1px solid rgba(255,255,255,.1);
+  background:transparent;color:var(--muted);font-family:var(--font);
+  font-size:.82rem;cursor:pointer;transition:all .2s;
+}
+.meal-tab.active{background:linear-gradient(135deg,var(--sun),var(--gold));color:#0a0501;border-color:transparent;font-weight:600}
+.meal-tab:hover:not(.active){border-color:rgba(249,115,22,.35);color:var(--sun)}
+.meal-panel{display:none;animation:fadeInUp .35s ease}
+.meal-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.meal-card{
+  background:var(--card);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r2);padding:1.4rem;position:relative;
+  overflow:hidden;cursor:pointer;transition:all .3s;
+}
+.meal-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(249,115,22,.04),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.meal-card:hover{border-color:rgba(249,115,22,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.meal-card:hover::before{opacity:1}
+.mc-letter{
+  width:28px;height:28px;border-radius:.4rem;
+  background:rgba(249,115,22,.12);color:var(--sun);
+  font-family:var(--mono);font-size:.78rem;font-weight:700;
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-bottom:.8rem;
+}
+.mc-name{font-family:var(--display);font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:.75rem}
+.mc-items{list-style:none;display:flex;flex-direction:column;gap:.28rem;margin-bottom:.9rem}
+.mc-items li{
+  font-size:.78rem;color:var(--muted);padding-left:.9rem;
+  position:relative;line-height:1.4;
+}
+.mc-items li::before{content:'›';position:absolute;left:0;color:var(--sun);font-size:.85rem}
+.mc-footer{
+  display:flex;flex-wrap:wrap;gap:.4rem;
+  padding-top:.9rem;border-top:1px solid rgba(255,255,255,.05);
+}
+.mc-pill{
+  font-size:.68rem;font-family:var(--mono);padding:.18rem .6rem;border-radius:1rem;
+}
+.mc-pill.kcal{background:rgba(249,115,22,.1);color:var(--sun);border:1px solid rgba(249,115,22,.2)}
+.mc-pill.prot{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.2)}
+.mc-pill.note{background:rgba(255,255,255,.04);color:var(--muted2);border:1px solid rgba(255,255,255,.06);font-family:var(--font)}
+.mc-star{
+  position:absolute;top:.9rem;right:.9rem;
+  background:rgba(234,179,8,.15);color:var(--gold);
+  font-size:.65rem;padding:.18rem .5rem;border-radius:1rem;
+  border:1px solid rgba(234,179,8,.25);
+}
+
+/* ══════════════════════════════════════
+   WEEKLY GRID
+══════════════════════════════════════ */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.7rem}
+.day-card{
+  background:var(--card);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);padding:.9rem .75rem;cursor:pointer;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.day-card:hover{border-color:var(--sun);transform:translateY(-3px)}
+.day-card.today{border-color:var(--sun);background:rgba(249,115,22,.06)}
+.day-type-stripe{
+  position:absolute;top:0;left:0;right:0;height:3px;
+}
+.day-type-stripe.low{background:linear-gradient(90deg,#ef4444,rgba(239,68,68,.3))}
+.day-type-stripe.normal{background:linear-gradient(90deg,var(--teal),rgba(20,184,166,.3))}
+.day-type-stripe.refeed{background:linear-gradient(90deg,var(--gold),rgba(234,179,8,.3))}
+.day-name{font-family:var(--display);font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:.25rem;margin-top:.2rem}
+.day-card.today .day-name{color:var(--sun)}
+.day-kcal{
+  font-family:var(--mono);font-size:.65rem;margin-bottom:.65rem;
+}
+.day-kcal.low{color:#ef4444}.day-kcal.normal{color:var(--teal2)}.day-kcal.refeed{color:var(--gold)}
+.day-slot{
+  font-size:.64rem;color:var(--muted);line-height:1.4;
+  margin-bottom:.3rem;padding:.22rem .35rem;
+  background:rgba(255,255,255,.03);border-radius:.3rem;
+}
+.day-slot strong{display:block;color:rgba(232,244,242,.6);font-size:.65rem}
+
+/* ══════════════════════════════════════
+   BUDGET SECTION
+══════════════════════════════════════ */
+.budget-viz{
+  display:grid;grid-template-columns:1fr 1.4fr;gap:2rem;align-items:start;
+}
+.budget-donut{position:relative;width:200px;height:200px;margin:0 auto}
+.budget-donut-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+.budget-total-num{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--sun)}
+.budget-total-label{font-size:.7rem;color:var(--muted)}
+.budget-items{display:flex;flex-direction:column;gap:.6rem}
+.bitem{
+  display:flex;align-items:center;gap:.9rem;padding:.7rem 1rem;
+  background:var(--card);border:1px solid rgba(255,255,255,.06);
+  border-radius:.7rem;transition:all .2s;
+}
+.bitem:hover{border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.04)}
+.bitem-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.bitem-name{font-size:.83rem;flex:1;color:var(--text)}
+.bitem-cost{font-family:var(--mono);font-size:.78rem;color:var(--sun)}
+.bitem-bar-wrap{width:80px;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.bitem-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--sun),var(--gold));transition:width 1.2s ease}
+.budget-tip{
+  background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.18);
+  border-radius:var(--r);padding:1rem 1.2rem;margin-top:1.5rem;
+  font-size:.82rem;color:var(--muted);line-height:1.6;
+}
+.budget-tip strong{color:var(--teal2)}
+
+/* ══════════════════════════════════════
+   SUPPLEMENTS
+══════════════════════════════════════ */
+.supp-timeline{display:flex;flex-direction:column;gap:0;position:relative}
+.supp-timeline::before{
+  content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,var(--sun),var(--teal),var(--gold));opacity:.25;
+}
+.supp-item{
+  display:flex;gap:1.5rem;padding:1.2rem 0;align-items:flex-start;
+  transition:all .2s;
+}
+.supp-item:hover .supp-dot{box-shadow:0 0 20px var(--sun-col,rgba(249,115,22,.5))}
+.supp-dot{
+  width:56px;height:56px;border-radius:50%;background:var(--card);
+  border:1px solid rgba(255,255,255,.1);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;position:relative;z-index:1;
+  transition:box-shadow .3s;
+}
+.supp-body{}
+.supp-time{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-bottom:.25rem}
+.supp-name{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.supp-dose{
+  display:inline-block;font-family:var(--mono);font-size:.72rem;
+  background:rgba(249,115,22,.1);color:var(--sun);
+  border:1px solid rgba(249,115,22,.2);border-radius:.4rem;
+  padding:.15rem .55rem;margin-bottom:.35rem;
+}
+.supp-rule{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+/* ══════════════════════════════════════
+   IRON SOURCES TABLE
+══════════════════════════════════════ */
+.iron-table{width:100%;border-collapse:collapse}
+.iron-table thead tr{border-bottom:1px solid rgba(255,255,255,.07)}
+.iron-table th{
+  text-align:left;padding:.7rem 1rem;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:500;
+}
+.iron-table td{padding:.75rem 1rem;font-size:.83rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.iron-table tr:hover td{background:rgba(249,115,22,.03)}
+.iron-table tr:last-child td{border-bottom:none;color:var(--teal2);font-weight:600}
+.iron-source{color:var(--text)}
+.iron-mg{font-family:var(--mono);color:var(--gold)}
+.iron-when{color:var(--muted)}
+.iron-boost{font-size:.72rem;color:var(--teal2)}
+
+/* ══════════════════════════════════════
+   CHECKLIST
+══════════════════════════════════════ */
+.checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.check-item{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.7rem .9rem;background:var(--card);
+  border:1px solid rgba(255,255,255,.06);border-radius:.7rem;
+  cursor:pointer;transition:all .2s;user-select:none;
+}
+.check-item.checked{
+  background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.25);
+}
+.check-item:hover:not(.checked){border-color:rgba(249,115,22,.25);background:rgba(249,115,22,.04)}
+.check-box{
+  width:18px;height:18px;border-radius:.3rem;border:1.5px solid rgba(255,255,255,.2);
+  flex-shrink:0;margin-top:.1rem;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;
+}
+.check-item.checked .check-box{background:var(--green);border-color:var(--green);color:#fff}
+.check-text{font-size:.82rem;color:var(--muted);line-height:1.45}
+.check-item.checked .check-text{color:var(--text);text-decoration:line-through;text-decoration-color:rgba(34,197,94,.4)}
+.check-score{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.2rem;text-align:center;margin-bottom:1.5rem;
+}
+.score-num{font-family:var(--display);font-size:2.5rem;font-weight:700;color:var(--sun)}
+.score-label{font-size:.78rem;color:var(--muted)}
+
+/* ══════════════════════════════════════
+   PROGRESS PROJECTIONS
+══════════════════════════════════════ */
+.proj-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}
+.proj-card{
+  background:var(--card);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r2);padding:1.2rem;text-align:center;
+  transition:all .3s;
+}
+.proj-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.proj-card.goal{border-color:rgba(234,179,8,.3);background:rgba(234,179,8,.04)}
+.proj-month{font-family:var(--mono);font-size:.7rem;color:var(--gold);margin-bottom:.4rem}
+.proj-weight{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--text);margin-bottom:.3rem}
+.proj-loss{font-size:.75rem;color:var(--muted)}
+/* chart wrapper */
+.chart-wrap{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r2);padding:1.5rem;margin-top:2rem;
+}
+
+/* ══════════════════════════════════════
+   BATCH PREP
+══════════════════════════════════════ */
+.batch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.batch-card{
+  background:var(--card);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);padding:1.2rem;transition:all .25s;
+}
+.batch-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.batch-icon{font-size:1.4rem;margin-bottom:.6rem}
+.batch-task{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
+.batch-time{font-family:var(--mono);font-size:.72rem;color:var(--teal2)}
+.batch-method{font-size:.76rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
+
+/* ══════════════════════════════════════
+   ALERT BOXES
+══════════════════════════════════════ */
+.alert{
+  border-radius:var(--r);padding:1rem 1.2rem;
+  font-size:.84rem;line-height:1.6;margin:.8rem 0;
+}
+.alert.warn{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.22);color:#fca5a5}
+.alert.warn strong{color:#ef4444;display:block;margin-bottom:.15rem}
+.alert.info{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.2);color:var(--muted)}
+.alert.info strong{color:var(--teal2);display:block;margin-bottom:.15rem}
+.alert.gold{background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.22);color:#d4b44e}
+.alert.gold strong{color:var(--gold);display:block;margin-bottom:.15rem}
+
+/* ══════════════════════════════════════
+   DOCTOR SECTION
+══════════════════════════════════════ */
+.doc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.doc-card{
+  background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);
+  border-radius:var(--r2);padding:1.4rem;transition:all .3s;
+}
+.doc-card:hover{border-color:#ef4444;transform:translateY(-2px)}
+.doc-icon{font-size:1.5rem;margin-bottom:.6rem}
+.doc-title{font-size:.9rem;font-weight:600;color:#fca5a5;margin-bottom:.4rem}
+.doc-detail{font-size:.8rem;color:var(--muted);line-height:1.6}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  text-align:center;padding:3rem 2rem;
+  border-top:1px solid rgba(249,115,22,.1);
+  color:var(--muted2);font-size:.78rem;
+}
+footer span{color:var(--sun)}
+
+/* ══════════════════════════════════════
+   MISC UTILS
+══════════════════════════════════════ */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}.mt-4{margin-top:2rem}
+.flex-between{display:flex;justify-content:space-between;align-items:center}
+.divider{height:1px;background:rgba(255,255,255,.05);margin:2rem 0}
+.tag-row{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.tag{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.7rem;padding:.22rem .65rem;border-radius:1rem;
+  font-family:var(--mono);
+}
+.tag.green{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.tag.red{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.tag.orange{background:rgba(249,115,22,.1);color:var(--sun2);border:1px solid rgba(249,115,22,.2)}
+.tag.teal{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.2)}
+
+/* ANIMATIONS */
+@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,.4)}50%{box-shadow:0 0 0 6px transparent}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+@media(max-width:900px){
+  nav{padding:.8rem 1.5rem}.nav-links{display:none}
+  .section,.section-full .inner{padding:3rem 1.5rem}
+  .goal-grid,.budget-viz,.grid-2,.grid-3{grid-template-columns:1fr}
+  .week-grid{grid-template-columns:repeat(4,1fr)}
+  .checklist-grid{grid-template-columns:1fr}
+  #hero .hero-inner{padding:0 1.5rem}
+  .hero-title{font-size:2.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-sun"></div>
+  <div class="loader-text">Summer 2026</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Manmeet Summer Diet</div>
+  <div class="nav-links">
+    <a href="#goal">Goal</a>
+    <a href="#blood">Blood Report</a>
+    <a href="#calories">Calories</a>
+    <a href="#meals">Meals</a>
+    <a href="#weekly">Schedule</a>
+    <a href="#budget">Budget</a>
+    <a href="#checklist">Checklist</a>
+  </div>
+  <div class="nav-tag">June 2026 · V5</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-chip"><span class="dot"></span>Delhi Summer · 45°C · Active Plan</div>
+    <h1 class="hero-title">
+      <span class="line-muted">Manmeet's</span>
+      <span class="line-orange">Summer</span>
+      <span class="line-white">Diet Plan</span>
+    </h1>
+    <p class="hero-sub">
+      A precision nutrition system designed for 45°C Delhi heat — 20 kg in 22 weeks,
+      built around your blood report, budget, and schedule.
+    </p>
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-num" data-count="110">0</span>
+        <span class="hstat-label">Current kg</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="90">0</span>
+        <span class="hstat-label">Goal kg</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="22">0</span>
+        <span class="hstat-label">Weeks</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num" data-count="1643">0</span>
+        <span class="hstat-label">Avg kcal/day</span>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#meals" class="btn-primary">🍛 View Meals</a>
+      <a href="#checklist" class="btn-ghost">✅ Daily Checklist</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-track"></div></div>
+</section>
+
+<!-- GOAL -->
+<section id="goal" class="section-full">
+  <div class="inner">
+    <div class="chip">20 KG Mission</div>
+    <h2 class="section-title">The Honest Timeline</h2>
+    <p class="section-sub">0.9 kg/week required · 22 weeks to Nov 1 · Diet alone = 15–17 kg · Add 30 min walk = exactly 90 kg</p>
+    <div class="goal-grid reveal">
+      <div>
+        <div class="goal-cards stagger">
+          <div class="goal-card">
+            <div class="gc-icon">⚖️</div>
+            <span class="gc-num" data-count="20">0</span>
+            <span class="gc-label">kg to lose</span>
+          </div>
+          <div class="goal-card">
+            <div class="gc-icon">📅</div>
+            <span class="gc-num" data-count="22">0</span>
+            <span class="gc-label">weeks left</span>
+          </div>
+          <div class="goal-card">
+            <div class="gc-icon">🔥</div>
+            <span class="gc-num">0.9</span>
+            <span class="gc-label">kg/week needed</span>
+          </div>
+          <div class="goal-card">
+            <div class="gc-icon">💸</div>
+            <span class="gc-num">₹5,800</span>
+            <span class="gc-label">monthly budget</span>
+          </div>
+        </div>
+        <div class="alert gold mt-3">
+          <strong>💡 Walking Recommendation</strong>
+          Even 20–30 min walk at 9–10 AM (before the heat hits 40°C) adds ~180 kcal burn/day. Over 22 weeks = 3–4 kg extra loss. This makes the 90 kg goal completely realistic without extreme dieting.
+        </div>
+      </div>
+      <div>
+        <div class="milestones">
+          <div class="ms-item">
+            <div class="ms-dot achieved">✓</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">Now — May 2026</div>
+                <div class="ms-kg">110 kg · Plateau broken</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="0" style="width:0%"></div></div>
+            </div>
+          </div>
+          <div class="ms-item">
+            <div class="ms-dot current">NOW</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">June 2026</div>
+                <div class="ms-kg">106–107 kg · ~3–4 kg loss</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="20"></div></div>
+            </div>
+          </div>
+          <div class="ms-item">
+            <div class="ms-dot future">JUL</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">July 2026</div>
+                <div class="ms-kg">103–104 kg · ~3 kg loss</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="35"></div></div>
+            </div>
+          </div>
+          <div class="ms-item">
+            <div class="ms-dot future">AUG</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">August 2026</div>
+                <div class="ms-kg">99–101 kg · Sub-100! 🎉</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="55"></div></div>
+            </div>
+          </div>
+          <div class="ms-item">
+            <div class="ms-dot future">SEP</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">September 2026</div>
+                <div class="ms-kg">96–98 kg · ~3 kg loss</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="70"></div></div>
+            </div>
+          </div>
+          <div class="ms-item">
+            <div class="ms-dot future">OCT</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month">October 2026</div>
+                <div class="ms-kg">92–94 kg · Final push</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="85"></div></div>
+            </div>
+          </div>
+          <div class="ms-item" style="background:rgba(234,179,8,.05);border-color:rgba(234,179,8,.25)">
+            <div class="ms-dot achieved" style="background:rgba(234,179,8,.2);color:var(--gold);border-color:rgba(234,179,8,.4)">🎉</div>
+            <div class="flex-between" style="flex:1">
+              <div>
+                <div class="ms-month" style="color:var(--gold)">Nov 1st Week 2026</div>
+                <div class="ms-kg" style="color:var(--text);font-weight:600">90 kg — GOAL ACHIEVED</div>
+              </div>
+              <div class="ms-bar-wrap"><div class="ms-bar" data-w="100" style="background:linear-gradient(90deg,var(--gold),var(--sun))"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOOD REPORT -->
+<section id="blood" class="section-full">
+  <div class="inner">
+    <div class="chip">Bloodwork · April 11</div>
+    <h2 class="section-title">Blood Report — Every Meal Built Around This</h2>
+    <p class="section-sub">Dr Lal PathLabs · Lab No. 514079123 · 4 critical + 5 moderate markers driving all food decisions</p>
+    <div class="blood-grid stagger reveal">
+      <div class="bcard critical">
+        <span class="bc-badge">🔴 Critical</span>
+        <div class="bc-marker">Serum Uric Acid</div>
+        <div class="bc-condition">High Uric Acid</div>
+        <div class="bc-val">8.53 <small style="font-size:.5em">mg/dL</small></div>
+        <div class="bc-ref">Ref: 3.50–7.20 mg/dL</div>
+        <div class="bc-action">No mutton, no prawns, no urad/toor dal. Lemon water daily. 4L water in summer.</div>
+      </div>
+      <div class="bcard critical">
+        <span class="bc-badge">🔴 Critical — NAFLD</span>
+        <div class="bc-marker">ALT (SGPT)</div>
+        <div class="bc-condition">Elevated Liver Enzymes</div>
+        <div class="bc-val">95.2 <small style="font-size:.5em">U/L</small></div>
+        <div class="bc-ref">Ref: &lt;50 U/L</div>
+        <div class="bc-action">Max 1 tsp oil per cooking. Garlic + turmeric daily. No fried food. Weight loss = the cure.</div>
+      </div>
+      <div class="bcard critical">
+        <span class="bc-badge">🔴 Critical</span>
+        <div class="bc-marker">Serum Iron / MCV / MCH</div>
+        <div class="bc-condition">Iron Deficiency Anaemia</div>
+        <div class="bc-val">55.6 <small style="font-size:.5em">µg/dL</small></div>
+        <div class="bc-ref">Ref: 65+ µg/dL</div>
+        <div class="bc-action">Masoor dal 4x/week. Methi eggs 2x/week. Palak dal Friday. Amla daily. Lemon on all food.</div>
+      </div>
+      <div class="bcard high">
+        <span class="bc-badge">🟠 High</span>
+        <div class="bc-marker">Triglycerides</div>
+        <div class="bc-condition">High Triglycerides</div>
+        <div class="bc-val">175 <small style="font-size:.5em">mg/dL</small></div>
+        <div class="bc-ref">Ref: &lt;150 mg/dL</div>
+        <div class="bc-action">Oats 3x/week. Isabgol daily. Low refined carbs. Omega-3 daily. No sugar.</div>
+      </div>
+      <div class="bcard high">
+        <span class="bc-badge">🟠 High</span>
+        <div class="bc-marker">LDL Cholesterol</div>
+        <div class="bc-condition">High LDL</div>
+        <div class="bc-val">131 <small style="font-size:.5em">mg/dL</small></div>
+        <div class="bc-ref">Ref: &lt;100 mg/dL</div>
+        <div class="bc-action">Dal fibre. Isabgol beta-glucan. Oats. Fruits daily. No saturated fat or butter.</div>
+      </div>
+      <div class="bcard high">
+        <span class="bc-badge">🔴 Inflamed</span>
+        <div class="bc-marker">HsCRP</div>
+        <div class="bc-condition">Systemic Inflammation</div>
+        <div class="bc-val">6.70 <small style="font-size:.5em">mg/L</small></div>
+        <div class="bc-ref">Ref: &lt;1.00 mg/L</div>
+        <div class="bc-action">Turmeric + black pepper every meal. Garlic daily. Omega-3. Amla. Weight loss.</div>
+      </div>
+      <div class="bcard moderate">
+        <span class="bc-badge">⚠️ Insufficient</span>
+        <div class="bc-marker">25-OH Vitamin D</div>
+        <div class="bc-condition">Vitamin D Low</div>
+        <div class="bc-val">68.7 <small style="font-size:.5em">nmol/L</small></div>
+        <div class="bc-ref">Ref: 75–250 nmol/L</div>
+        <div class="bc-action">10–11 AM sunlight daily (before peak heat). Weekly D3 60,000 IU.</div>
+      </div>
+      <div class="bcard moderate">
+        <span class="bc-badge">⚠️ Low-Normal</span>
+        <div class="bc-marker">Vitamin B12</div>
+        <div class="bc-condition">B12 Borderline</div>
+        <div class="bc-val">227 <small style="font-size:.5em">pg/mL</small></div>
+        <div class="bc-ref">Ref: 211–946 pg/mL</div>
+        <div class="bc-action">HK Vitals strictly at 10 PM away from dairy. Eggs + chicken daily.</div>
+      </div>
+      <div class="bcard moderate">
+        <span class="bc-badge">⚠️ Water Retention</span>
+        <div class="bc-marker">Post-dinner pattern</div>
+        <div class="bc-condition">Water Retention Noted</div>
+        <div class="bc-val">Confirmed</div>
+        <div class="bc-ref">No soups at dinner confirmed trigger</div>
+        <div class="bc-action">No soups at dinner. No rice. Ghiya/tori. 70% water before 5 PM in summer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALORIES & MACROS -->
+<section id="calories" class="section">
+  <div class="chip">Fuel System</div>
+  <h2 class="section-title">Calorie Cycling + Macros</h2>
+  <p class="section-sub">Weekly avg 1,643 kcal · ~880 kcal deficit from TDEE 2,520 · Mandatory for 20 kg goal</p>
+  <div class="reveal">
+    <div class="cal-viz-section">
+      <div class="cal-avg">Weekly Avg: <strong>~1,643 kcal</strong></div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#ef4444"></div>Low 1,450</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--teal)"></div>Normal 1,700</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--gold)"></div>Refeed 2,000</div>
+      </div>
+      <div class="cal-day-bars">
+        <div class="cal-bar-wrap">
+          <div class="cal-bar low" data-h="72.5" style="height:0"><div class="cal-bar-val" style="color:#ef4444">1,450</div></div>
+          <div class="cal-bar-label">Mon🔴</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar normal" data-h="85" style="height:0"><div class="cal-bar-val" style="color:var(--teal2)">1,700</div></div>
+          <div class="cal-bar-label">Tue⭐</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar low" data-h="72.5" style="height:0"><div class="cal-bar-val" style="color:#ef4444">1,450</div></div>
+          <div class="cal-bar-label">Wed🔴</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar normal" data-h="85" style="height:0"><div class="cal-bar-val" style="color:var(--teal2)">1,700</div></div>
+          <div class="cal-bar-label">Thu⭐</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar low" data-h="72.5" style="height:0"><div class="cal-bar-val" style="color:#ef4444">1,450</div></div>
+          <div class="cal-bar-label">Fri🔴</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar refeed" data-h="100" style="height:0"><div class="cal-bar-val" style="color:var(--gold)">2,000</div></div>
+          <div class="cal-bar-label">Sat🎉</div>
+        </div>
+        <div class="cal-bar-wrap">
+          <div class="cal-bar normal" data-h="85" style="height:0"><div class="cal-bar-val" style="color:var(--teal2)">1,700</div></div>
+          <div class="cal-bar-label">Sun⭐</div>
+        </div>
+      </div>
+    </div>
+    <div class="alert gold mt-3">
+      <strong>🟢 Saturday Refeed — Science not a cheat day</strong>
+      Rajma rice for lunch. Increases carbs only, NOT fat. Resets leptin hormone which controls fat burning. 3-week plateaus happen when leptin drops — this weekly refeed prevents it. Still maintains ~880 kcal weekly deficit.
+    </div>
+    <div class="macro-rings mt-4">
+      <div class="mring">
+        <div class="mring-wrap"><canvas id="r_prot" role="img" aria-label="Protein ring"></canvas><div class="mring-center"><div class="mring-num" style="color:var(--teal2)">155–170</div><div class="mring-unit">g/day</div></div></div>
+        <div class="mring-label">Protein</div><div class="mring-sub">Chicken+eggs+dal+curd</div>
+      </div>
+      <div class="mring">
+        <div class="mring-wrap"><canvas id="r_carb" role="img" aria-label="Carbs ring"></canvas><div class="mring-center"><div class="mring-num" style="color:var(--gold)">80–115</div><div class="mring-unit">g/day</div></div></div>
+        <div class="mring-label">Carbs</div><div class="mring-sub">Oats+roti+dal+fruit</div>
+      </div>
+      <div class="mring">
+        <div class="mring-wrap"><canvas id="r_fat" role="img" aria-label="Fat ring"></canvas><div class="mring-center"><div class="mring-num" style="color:var(--sun)">50–58</div><div class="mring-unit">g/day</div></div></div>
+        <div class="mring-label">Fat</div><div class="mring-sub">Eggs+chicken+seeds</div>
+      </div>
+      <div class="mring">
+        <div class="mring-wrap"><canvas id="r_fib" role="img" aria-label="Fibre ring"></canvas><div class="mring-center"><div class="mring-num" style="color:#a78bfa">28–35</div><div class="mring-unit">g/day</div></div></div>
+        <div class="mring-label">Fibre</div><div class="mring-sub">Dal+veg+oats+isabgol</div>
+      </div>
+      <div class="mring">
+        <div class="mring-wrap"><canvas id="r_water" role="img" aria-label="Water ring"></canvas><div class="mring-center"><div class="mring-num" style="color:#38bdf8">4L</div><div class="mring-unit">minimum</div></div></div>
+        <div class="mring-label">Water</div><div class="mring-sub">+coconut+chaas counts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMER PHILOSOPHY -->
+<section class="section" style="background:var(--bg2);max-width:100%;padding:5rem 0">
+  <div style="max-width:1400px;margin:0 auto;padding:0 3rem">
+    <div class="chip">Philosophy</div>
+    <h2 class="section-title">Why Summer is Good for Weight Loss</h2>
+    <p class="section-sub">45°C Delhi heat = natural appetite suppression + peak season for cheap cooling vegetables</p>
+    <div class="summer-banner reveal">
+      <h3>☀️ Summer Diet Advantages</h3>
+      <div class="grid-3 stagger" style="gap:1rem">
+        <div><span style="color:var(--sun);font-weight:600">Natural appetite suppression</span><p style="font-size:.82rem;color:var(--muted);margin-top:.3rem">Heat reduces appetite → easier deficit maintenance without willpower</p></div>
+        <div><span style="color:var(--teal2);font-weight:600">Cheapest seasonal vegetables</span><p style="font-size:.82rem;color:var(--muted);margin-top:.3rem">Ghiya, tori, bhindi at lowest prices. Watermelon + muskmelon cheapest June–August.</p></div>
+        <div><span style="color:var(--gold);font-weight:600">More sweating = toxin removal</span><p style="font-size:.82rem;color:var(--muted);margin-top:.3rem">Greater water turnover helps flush uric acid faster. Doubles the benefit of hydration.</p></div>
+      </div>
+    </div>
+    <div class="chip mt-3">Cooling Foods</div>
+    <div class="cooling-grid reveal">
+      <div class="cooling-card"><div class="cool-name">🫙 Chaas / Buttermilk</div><div class="cool-prop">Best summer post-meal drink · Probiotic</div><div class="cool-cal">~40–60 kcal/glass · Daily after lunch</div></div>
+      <div class="cooling-card"><div class="cool-name">🥥 Coconut Water</div><div class="cool-prop">Electrolytes · Prevents cramps</div><div class="cool-cal">~45 kcal · Once daily</div></div>
+      <div class="cooling-card"><div class="cool-name">🍉 Watermelon</div><div class="cool-prop">92% water · Most cooling fruit</div><div class="cool-cal">~30 kcal/100g · 4–5x/week snack</div></div>
+      <div class="cooling-card"><div class="cool-name">🫒 Ghiya / Bottle Gourd</div><div class="cool-prop">90% water · Natural diuretic</div><div class="cool-cal">~17 kcal/100g · Dinner 3–4x/week</div></div>
+      <div class="cooling-card"><div class="cool-name">🫑 Cucumber</div><div class="cool-prop">96% water · Uric acid flush</div><div class="cool-cal">~14 kcal · Unlimited with every meal</div></div>
+      <div class="cooling-card"><div class="cool-name">🌿 Mint / Pudina</div><div class="cool-prop">Strongest cooling herb</div><div class="cool-cal">Negligible · In chaas + water daily</div></div>
+      <div class="cooling-card"><div class="cool-name">🧅 Raw Onion</div><div class="cool-prop">Cooling + anti-inflammatory</div><div class="cool-cal">~40 kcal · With every meal, free</div></div>
+      <div class="cooling-card"><div class="cool-name">🍈 Muskmelon</div><div class="cool-prop">High potassium · Natural diuretic</div><div class="cool-cal">~35 kcal · 2–3x/week snack</div></div>
+    </div>
+    <div class="alert warn mt-3">
+      <strong>🚨 Summer Water Rule: 4L Minimum</strong>
+      At 45°C you lose 1–1.5L extra through sweat daily. Uric acid (8.53) MUST be diluted. Coconut water and chaas count. Drink 70% of your 4L BEFORE 5:30 PM to prevent overnight water retention.
+    </div>
+  </div>
+</section>
+
+<!-- MEALS -->
+<section id="meals" class="section">
+  <div class="chip">Food</div>
+  <h2 class="section-title">Meal Options — All 5 Meals</h2>
+  <p class="section-sub">All under 20 min · All summer-safe · No chana dal, no jowar/ragi/bajra roti, no soups at dinner</p>
+  <div class="alert info">
+    <strong>✅ Every meal non-negotiables:</strong>
+    15ml amla juice with breakfast · Turmeric + black pepper in every cooked dish · Garlic in every chicken/dal/sabzi · Lemon squeezed on dal + sabzi + salad · Raw onion + cucumber with every meal
+  </div>
+  <div class="meal-tabs">
+    <button class="meal-tab active" onclick="switchMeal('bf',this)">🌅 Breakfast 11AM</button>
+    <button class="meal-tab" onclick="switchMeal('sn',this)">🥜 Snack 1PM</button>
+    <button class="meal-tab" onclick="switchMeal('ln',this)">🍛 Lunch 2:30PM</button>
+    <button class="meal-tab" onclick="switchMeal('ev',this)">🍉 Evening 5PM</button>
+    <button class="meal-tab" onclick="switchMeal('dn',this)">🌙 Dinner 8PM</button>
+  </div>
+
+  <!-- BREAKFAST -->
+  <div id="bf" class="meal-panel active">
+    <div class="meal-card"><div class="mc-star">★ Use 3x/week</div><div class="mc-letter">A</div><div class="mc-name">Masala Oats + Eggs ⏱ 12 min</div><ul class="mc-items"><li>40g rolled oats in water: onion+tomato+capsicum+jeera+turmeric</li><li>2 whole eggs + 1 egg white (scrambled into oats last 2 min)</li><li>15ml amla juice · Green tea</li></ul><div class="mc-footer"><span class="mc-pill kcal">~340 kcal</span><span class="mc-pill prot">~28g protein</span><span class="mc-pill note">LDL+TG buster 🏆</span></div></div>
+    <div class="meal-card"><div class="mc-letter">B</div><div class="mc-name">Methi Egg Bhurji + Wheat Roti ⏱ 15 min</div><ul class="mc-items"><li>2 whole eggs + 2 egg whites (methi bhurji: fresh methi leaves+onion+garlic+turmeric)</li><li>1 small whole wheat roti</li><li>15ml amla juice · Cucumber slices + lemon</li></ul><div class="mc-footer"><span class="mc-pill kcal">~370 kcal</span><span class="mc-pill prot">~32g protein</span><span class="mc-pill note">Iron day · Methi+egg yolks+amla</span></div></div>
+    <div class="meal-card"><div class="mc-letter">C</div><div class="mc-name">Poha + Boiled Eggs ⏱ 12 min</div><ul class="mc-items"><li>40g poha: mustard seeds+curry leaves+onion+turmeric+30g peas+lemon</li><li>2 boiled eggs (pre-boiled from batch)</li><li>15ml amla juice</li></ul><div class="mc-footer"><span class="mc-pill kcal">~330 kcal</span><span class="mc-pill prot">~22g protein</span><span class="mc-pill note">Lightest · Best for hot mornings</span></div></div>
+    <div class="meal-card"><div class="mc-star">Low-Cal Days</div><div class="mc-letter">D</div><div class="mc-name">High Protein No-Grain ⏱ 8 min</div><ul class="mc-items"><li>2 whole eggs + 2 egg whites (classic bhurji OR masala omelette)</li><li>150g curd</li><li>Cucumber + tomato (pre-cut) · 15ml amla juice</li></ul><div class="mc-footer"><span class="mc-pill kcal">~310 kcal</span><span class="mc-pill prot">~38g protein</span><span class="mc-pill note">Use Mon/Wed/Fri — fastest option</span></div></div>
+    <div class="meal-card"><div class="mc-letter">E</div><div class="mc-name">Daliya Upma + Eggs ⏱ 18 min</div><ul class="mc-items"><li>40g broken wheat daliya (pressure cooker): onion+carrot+30g peas+jeera+turmeric</li><li>2 boiled eggs (pre-boiled) + lemon on daliya</li><li>15ml amla juice</li></ul><div class="mc-footer"><span class="mc-pill kcal">~355 kcal</span><span class="mc-pill prot">~25g protein</span><span class="mc-pill note">Very filling · Normal days</span></div></div>
+    <div class="meal-card"><div class="mc-star">Refeed Sat</div><div class="mc-letter">F</div><div class="mc-name">Chicken + Egg Breakfast ⏱ 10 min</div><ul class="mc-items"><li>100g chicken breast (pre-marinated OR leftover from last night)</li><li>2 whole eggs scrambled: onion+turmeric</li><li>100g curd · 15ml amla juice</li></ul><div class="mc-footer"><span class="mc-pill kcal">~385 kcal</span><span class="mc-pill prot">~52g protein</span><span class="mc-pill note">Highest protein breakfast</span></div></div>
+  </div>
+
+  <!-- SNACK 1PM -->
+  <div id="sn" class="meal-panel">
+    <div class="alert warn" style="grid-column:1/-1">🚨 <strong>Almond Rule: Max 5 almonds per day TOTAL.</strong> If breakfast had almonds → skip here.</div>
+    <div class="meal-card"><div class="mc-star">★ June–August</div><div class="mc-letter">A</div><div class="mc-name">Summer Fruit Bowl 🍉</div><ul class="mc-items"><li>250g watermelon OR 200g muskmelon/kharbuja</li><li>5 almonds + 2 walnuts</li></ul><div class="mc-footer"><span class="mc-pill kcal">~130 kcal</span><span class="mc-pill note">Very cooling · High water content</span></div></div>
+    <div class="meal-card"><div class="mc-letter">B</div><div class="mc-name">Banana + Curd</div><ul class="mc-items"><li>1 banana + 100g curd + 1 tsp mixed seeds</li></ul><div class="mc-footer"><span class="mc-pill kcal">~190 kcal</span><span class="mc-pill prot">~7g protein</span><span class="mc-pill note">Potassium → counters water retention</span></div></div>
+    <div class="meal-card"><div class="mc-letter">C</div><div class="mc-name">Coconut Water + Nuts</div><ul class="mc-items"><li>1 tender coconut water (200ml)</li><li>5 almonds + 2 walnuts</li></ul><div class="mc-footer"><span class="mc-pill kcal">~110 kcal</span><span class="mc-pill note">Electrolytes · Anti-cramp</span></div></div>
+    <div class="meal-card"><div class="mc-letter">D</div><div class="mc-name">Curd + Cucumber Raita 🥒</div><ul class="mc-items"><li>150g curd + ½ cucumber grated (raita: jeera+mint+rock salt)</li><li>2 walnuts</li></ul><div class="mc-footer"><span class="mc-pill kcal">~110 kcal</span><span class="mc-pill note">Best cooling option · Uric acid ↓</span></div></div>
+    <div class="meal-card"><div class="mc-letter">E</div><div class="mc-name">Roasted Makhana (Low-Cal Day)</div><ul class="mc-items"><li>30g dry-roasted makhana (pre-roasted from batch)</li></ul><div class="mc-footer"><span class="mc-pill kcal">~110 kcal</span><span class="mc-pill note">Grab and eat · Zero prep</span></div></div>
+  </div>
+
+  <!-- LUNCH -->
+  <div id="ln" class="meal-panel">
+    <div class="alert info" style="grid-column:1/-1"><strong>✅ Every lunch:</strong> Big raw salad (cucumber+tomato+onion+lemon unlimited) · 150g curd · Turmeric+garlic in every sabzi · Lemon on dal + sabzi · Max 1 roti (wheat only) on Normal/Refeed days</div>
+    <div class="meal-card"><div class="mc-star">★ 3–4x/week</div><div class="mc-letter">A</div><div class="mc-name">Chicken + Summer Sabzi + Roti ⏱ 18 min</div><ul class="mc-items"><li>200g chicken breast (any marinade — pre-marinated)</li><li>150g bhindi OR ghiya OR tori (garlic+jeera+turmeric, minimal oil)</li><li>1 wheat roti (Normal days only) · 150g curd · Big salad</li></ul><div class="mc-footer"><span class="mc-pill kcal">~600 kcal (with roti)</span><span class="mc-pill prot">~65g protein</span><span class="mc-pill note">Skip roti on Low days</span></div></div>
+    <div class="meal-card"><div class="mc-star">★ Saturday Only</div><div class="mc-letter">B</div><div class="mc-name">Rajma Rice 🎉 ⏱ 20 min</div><ul class="mc-items"><li>50g dry rajma (soaked Friday night → pressure cook with tomato+onion+garlic — NO butter/cream)</li><li>60g dry basmati rice · 100g curd raita (jeera+mint+cucumber)</li></ul><div class="mc-footer"><span class="mc-pill kcal">~700 kcal</span><span class="mc-pill prot">~28g protein</span><span class="mc-pill note">⚠️ Drink 500ml extra water today</span></div></div>
+    <div class="meal-card"><div class="mc-star">4x/week · Iron</div><div class="mc-letter">C</div><div class="mc-name">Masoor Dal + Summer Sabzi + Roti ⏱ 15 min</div><ul class="mc-items"><li>150g masoor dal (pre-cooked: heat + garlic tadka + turmeric + amchur + lemon)</li><li>150g bhindi OR ghiya OR tori · 1 wheat roti (Normal days) · 150g curd</li></ul><div class="mc-footer"><span class="mc-pill kcal">~570 kcal</span><span class="mc-pill prot">~30g protein</span><span class="mc-pill note">Best for iron · Use 4x/week</span></div></div>
+    <div class="meal-card"><div class="mc-letter">D</div><div class="mc-name">Baingan Bharta + Dal + Roti 🌟 ⏱ 18 min</div><ul class="mc-items"><li>200g baingan bharta (roast on flame 8 min → mash+onion+tomato+garlic)</li><li>150g masoor dal (pre-cooked) · 1 wheat roti · 150g curd · Salad</li></ul><div class="mc-footer"><span class="mc-pill kcal">~590 kcal</span><span class="mc-pill prot">~30g protein</span><span class="mc-pill note">Your preference · Liver-friendly</span></div></div>
+    <div class="meal-card"><div class="mc-letter">E</div><div class="mc-name">Soyabean Chaap Sabzi + Roti ⏱ 20 min</div><ul class="mc-items"><li>150g soyabean chaap (tomato+onion gravy — NO cream/butter)</li><li>1 wheat roti · 150g curd · Salad</li></ul><div class="mc-footer"><span class="mc-pill kcal">~620 kcal</span><span class="mc-pill prot">~42g protein</span><span class="mc-pill note">⚠️ NOT same week as rajma · Extra water</span></div></div>
+    <div class="meal-card"><div class="mc-star">Friday Only 🌱</div><div class="mc-letter">F</div><div class="mc-name">Palak Dal + Roti (Only Palak Day)</div><ul class="mc-items"><li>150g masoor dal cooked WITH 80g palak (toss in while cooking)</li><li>1 wheat roti · 150g curd · Big salad + raw onion</li></ul><div class="mc-footer"><span class="mc-pill kcal">~560 kcal</span><span class="mc-pill prot">~28g protein</span><span class="mc-pill note">Best iron day · ~6mg iron · Lemon+amla</span></div></div>
+    <div class="meal-card"><div class="mc-letter">G</div><div class="mc-name">Egg Curry + Dal (Chicken Rest) ⏱ 18 min</div><ul class="mc-items"><li>2 whole eggs + 2 whites (egg curry: tomato+onion+garlic+ginger — NO cream)</li><li>150g masoor dal · 1 wheat roti (Normal) · 150g curd · Salad</li></ul><div class="mc-footer"><span class="mc-pill kcal">~580 kcal</span><span class="mc-pill prot">~40g protein</span><span class="mc-pill note">Low purine · Good iron day</span></div></div>
+    <div class="meal-card"><div class="mc-letter">H</div><div class="mc-name">Paneer + Summer Sabzi + Roti ⏱ 15 min</div><ul class="mc-items"><li>150g paneer (dry: cumin+turmeric+capsicum+tomato — no gravy)</li><li>150g bhindi OR ghiya · 1 wheat roti · 150g curd · Salad</li></ul><div class="mc-footer"><span class="mc-pill kcal">~630 kcal</span><span class="mc-pill prot">~45g protein</span><span class="mc-pill note">Highest veg protein lunch</span></div></div>
+  </div>
+
+  <!-- EVENING -->
+  <div id="ev" class="meal-panel">
+    <div class="alert info" style="grid-column:1/-1">This is the last window for meaningful water intake. Drink 1–2 glasses here. OPTIONAL on low-cal days if not hungry.</div>
+    <div class="meal-card"><div class="mc-star">★ Most Days June–Aug</div><div class="mc-letter">A</div><div class="mc-name">Watermelon Bowl 🍉</div><ul class="mc-items"><li>300–400g watermelon (cut and eat freely)</li></ul><div class="mc-footer"><span class="mc-pill kcal">~90–120 kcal</span><span class="mc-pill note">92% water · Most cooling snack ✅</span></div></div>
+    <div class="meal-card"><div class="mc-letter">B</div><div class="mc-name">Muskmelon / Kharbuja</div><ul class="mc-items"><li>250–300g muskmelon</li></ul><div class="mc-footer"><span class="mc-pill kcal">~90–100 kcal</span><span class="mc-pill note">High potassium · Natural diuretic</span></div></div>
+    <div class="meal-card"><div class="mc-letter">C</div><div class="mc-name">Raw Veggie Bowl + Egg Whites (Free Food!)</div><ul class="mc-items"><li>Unlimited cucumber+capsicum+tomato (lemon+black salt+chaat masala)</li><li>2 boiled egg whites</li></ul><div class="mc-footer"><span class="mc-pill kcal">~70–90 kcal</span><span class="mc-pill note">Eat as much as you want on low-cal days</span></div></div>
+    <div class="meal-card"><div class="mc-letter">D</div><div class="mc-name">Curd + Seeds</div><ul class="mc-items"><li>100g curd + 1 tsp mixed seeds + 2 walnuts</li></ul><div class="mc-footer"><span class="mc-pill kcal">~140 kcal</span><span class="mc-pill note">Uric acid friendly ✅</span></div></div>
+    <div class="meal-card"><div class="mc-letter">E</div><div class="mc-name">Banana</div><ul class="mc-items"><li>1 medium banana</li></ul><div class="mc-footer"><span class="mc-pill kcal">~90 kcal</span><span class="mc-pill note">Skip refeed Saturday (have at mid-morning)</span></div></div>
+  </div>
+
+  <!-- DINNER -->
+  <div id="dn" class="meal-panel">
+    <div class="alert warn" style="grid-column:1/-1">
+      <strong>🚨 Dinner Rules — Water Retention Critical</strong>
+      ❌ NO soups · ❌ NO rice · ❌ NO roti on Low days (Mon/Wed/Fri) · ❌ Minimum salt — use lemon+turmeric+pepper instead · ❌ Max ½ glass water after dinner ✅ Good Monk in curd + Omega-3 with dinner · ✅ Ghiya/tori preferred (natural diuretic)
+    </div>
+    <div class="meal-card"><div class="mc-star">★ 3x/week · Best</div><div class="mc-letter">A</div><div class="mc-name">Chicken + Ghiya + Curd 🌟 ⏱ 15 min</div><ul class="mc-items"><li>200g chicken breast (lemon-pepper OR turmeric-garlic — pre-marinated)</li><li>200g ghiya sabzi (garlic+jeera+turmeric — very light, minimal oil)</li><li>2 egg whites (pre-boiled) · 150g curd + 2 Good Monk sachets · 100g cucumber</li></ul><div class="mc-footer"><span class="mc-pill kcal">~490 kcal</span><span class="mc-pill prot">~78g protein</span><span class="mc-pill note">Best for tomorrow morning weight ✅</span></div></div>
+    <div class="meal-card"><div class="mc-letter">B</div><div class="mc-name">Chicken + Bhindi + Curd ⏱ 15 min</div><ul class="mc-items"><li>200g chicken breast (any dry marinade)</li><li>150g bhindi (dry: onion+jeera+turmeric, minimal oil) · 2 egg whites</li><li>150g curd + Good Monk · Cucumber + lemon</li></ul><div class="mc-footer"><span class="mc-pill kcal">~500 kcal</span><span class="mc-pill prot">~76g protein</span></div></div>
+    <div class="meal-card"><div class="mc-letter">C</div><div class="mc-name">Chicken + Tori + Curd ⏱ 13 min</div><ul class="mc-items"><li>200g chicken (garlic+ginger+turmeric — fastest marinade)</li><li>150g tori/ridge gourd (quick-cook 6–8 min) · 2 egg whites</li><li>150g curd + Good Monk · Cucumber</li></ul><div class="mc-footer"><span class="mc-pill kcal">~480 kcal</span><span class="mc-pill prot">~75g protein</span><span class="mc-pill note">Fastest dinner — 13 min total</span></div></div>
+    <div class="meal-card"><div class="mc-star">Normal Days Only</div><div class="mc-letter">D</div><div class="mc-name">Chicken + Baingan Bharta + Roti ⏱ 20 min</div><ul class="mc-items"><li>200g chicken (pre-marinated)</li><li>150g baingan bharta (use pre-roasted baingan — 5 min tadka)</li><li>1 small wheat roti (Tue/Thu/Sun ONLY) · 150g curd + Good Monk · Cucumber</li></ul><div class="mc-footer"><span class="mc-pill kcal">~545 kcal</span><span class="mc-pill prot">~76g protein</span></div></div>
+    <div class="meal-card"><div class="mc-letter">E</div><div class="mc-name">Eggs + Ghiya/Bhindi + Curd ⏱ 12 min</div><ul class="mc-items"><li>2 whole eggs + 3 egg whites (bhurji OR masala omelette)</li><li>200g ghiya OR 150g bhindi (dry sabzi) · 150g curd + Good Monk · Cucumber</li></ul><div class="mc-footer"><span class="mc-pill kcal">~450 kcal</span><span class="mc-pill prot">~52g protein</span><span class="mc-pill note">Use once a week · Chicken rest day</span></div></div>
+    <div class="meal-card"><div class="mc-letter">F</div><div class="mc-name">Paneer + Summer Veggie + Curd ⏱ 12 min</div><ul class="mc-items"><li>150g paneer (dry: turmeric+garlic+capsicum — pan 5 min)</li><li>200g ghiya OR bhindi (dry) · 3 egg whites (pre-boiled)</li><li>150g curd + Good Monk · Cucumber</li></ul><div class="mc-footer"><span class="mc-pill kcal">~510 kcal</span><span class="mc-pill prot">~60g protein</span><span class="mc-pill note">Use 1–2x/week · Low purine</span></div></div>
+  </div>
+</section>
+
+<!-- WEEKLY SCHEDULE -->
+<section id="weekly" class="section-full" style="background:var(--bg2)">
+  <div class="inner">
+    <div class="chip">Schedule</div>
+    <h2 class="section-title">Weekly Rotation</h2>
+    <p class="section-sub">Palak once on Friday only · Rajma Saturday only · Soyabean alternate Sundays · Swap Low/Normal every 2 weeks</p>
+    <div class="week-grid reveal">
+      <div class="day-card today">
+        <div class="day-type-stripe low"></div>
+        <div class="day-name">Mon</div>
+        <div class="day-kcal low">🔴 ~1,450</div>
+        <div class="day-slot"><strong>Breakfast</strong>D — No-Grain Bhurji</div>
+        <div class="day-slot"><strong>Snack</strong>E — Makhana</div>
+        <div class="day-slot"><strong>Lunch</strong>A — Chicken+Bhindi (No Roti)</div>
+        <div class="day-slot"><strong>Evening</strong>A — Watermelon</div>
+        <div class="day-slot"><strong>Dinner</strong>A — Chicken+Ghiya</div>
+      </div>
+      <div class="day-card">
+        <div class="day-type-stripe normal"></div>
+        <div class="day-name">Tue</div>
+        <div class="day-kcal normal">⭐ ~1,700</div>
+        <div class="day-slot"><strong>Breakfast</strong>A — Masala Oats</div>
+        <div class="day-slot"><strong>Snack</strong>A — Watermelon</div>
+        <div class="day-slot"><strong>Lunch</strong>C — Masoor Dal+Ghiya+Roti</div>
+        <div class="day-slot"><strong>Evening</strong>D — Curd+Seeds</div>
+        <div class="day-slot"><strong>Dinner</strong>B — Chicken+Bhindi</div>
+      </div>
+      <div class="day-card">
+        <div class="day-type-stripe low"></div>
+        <div class="day-name">Wed</div>
+        <div class="day-kcal low">🔴 ~1,450</div>
+        <div class="day-slot"><strong>Breakfast</strong>D — No-Grain Bhurji</div>
+        <div class="day-slot"><strong>Snack</strong>D — Curd+Cucumber</div>
+        <div class="day-slot"><strong>Lunch</strong>A — Chicken+Tori (No Roti)</div>
+        <div class="day-slot"><strong>Evening</strong>C — Raw Veggie+Egg Whites</div>
+        <div class="day-slot"><strong>Dinner</strong>C — Chicken+Tori</div>
+      </div>
+      <div class="day-card">
+        <div class="day-type-stripe normal"></div>
+        <div class="day-name">Thu</div>
+        <div class="day-kcal normal">⭐ ~1,700</div>
+        <div class="day-slot"><strong>Breakfast</strong>B — Methi Bhurji+Roti</div>
+        <div class="day-slot"><strong>Snack</strong>B — Banana+Curd</div>
+        <div class="day-slot"><strong>Lunch</strong>D — Baingan Bharta+Dal+Roti</div>
+        <div class="day-slot"><strong>Evening</strong>A — Watermelon</div>
+        <div class="day-slot"><strong>Dinner</strong>A — Chicken+Ghiya</div>
+      </div>
+      <div class="day-card">
+        <div class="day-type-stripe low"></div>
+        <div class="day-name">Fri</div>
+        <div class="day-kcal low">🔴 ~1,450</div>
+        <div class="day-slot"><strong>Breakfast</strong>D — No-Grain Bhurji</div>
+        <div class="day-slot"><strong>Snack</strong>E — Makhana</div>
+        <div class="day-slot"><strong>Lunch</strong>F — Palak Dal+Roti 🌱</div>
+        <div class="day-slot"><strong>Evening</strong>B — Muskmelon</div>
+        <div class="day-slot"><strong>Dinner</strong>E — Eggs+Ghiya</div>
+      </div>
+      <div class="day-card" style="border-color:rgba(234,179,8,.25);background:rgba(234,179,8,.03)">
+        <div class="day-type-stripe refeed"></div>
+        <div class="day-name" style="color:var(--gold)">Sat</div>
+        <div class="day-kcal refeed">🟢 ~2,000 Refeed</div>
+        <div class="day-slot"><strong>Breakfast</strong>F — Chicken+Egg</div>
+        <div class="day-slot"><strong>Snack</strong>A — Watermelon</div>
+        <div class="day-slot"><strong>Lunch</strong>B — RAJMA RICE 🎉</div>
+        <div class="day-slot"><strong>Evening</strong>D — Curd+Seeds</div>
+        <div class="day-slot"><strong>Dinner</strong>D — Chicken+Baingan+Roti</div>
+      </div>
+      <div class="day-card">
+        <div class="day-type-stripe normal"></div>
+        <div class="day-name">Sun</div>
+        <div class="day-kcal normal">⭐ ~1,700</div>
+        <div class="day-slot"><strong>Breakfast</strong>A — Masala Oats</div>
+        <div class="day-slot"><strong>Snack</strong>C — Coconut Water+Nuts</div>
+        <div class="day-slot"><strong>Lunch</strong>H — Paneer+Bhindi+Roti</div>
+        <div class="day-slot"><strong>Evening</strong>E — Banana</div>
+        <div class="day-slot"><strong>Dinner</strong>F — Paneer+Ghiya</div>
+      </div>
+    </div>
+    <div class="alert info mt-3">🔄 <strong>Rotate every 2 weeks</strong> — swap which days are Low/Normal to prevent re-adaptation. On alternate Sundays, replace lunch H with Soyabean Chaap (Option E) — NOT same week as rajma.</div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget" class="section">
+  <div class="chip">Cost</div>
+  <h2 class="section-title">Weekly Budget — Delhi Market Summer 2026</h2>
+  <p class="section-sub">Rs 1,450–1,600/week · Rs 5,800–6,400/month · ~Rs 210/day max</p>
+  <div class="budget-viz reveal">
+    <div>
+      <div class="budget-donut">
+        <canvas id="budgetDonut" width="200" height="200" role="img" aria-label="Budget breakdown donut chart"></canvas>
+        <div class="budget-donut-center">
+          <div class="budget-total-num">₹1,525</div>
+          <div class="budget-total-label">avg/week</div>
+        </div>
+      </div>
+      <div class="budget-tip mt-3">
+        <strong>💡 Budget Tips</strong><br>
+        Buy chicken in bulk (3–4 kg) from wholesale butcher — saves Rs 30–50/kg. Watermelon + muskmelon cheapest June–August. Ghiya + tori + bhindi are at peak cheapness and nutrition in summer. This is the best season for this diet cost-wise.
+      </div>
+    </div>
+    <div class="budget-items">
+      <div class="bitem"><div class="bitem-dot" style="background:#ef4444"></div><span class="bitem-name">🍗 Chicken breast (1.4 kg)</span><span class="bitem-cost">Rs 340</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="100"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:var(--gold)"></div><span class="bitem-name">🥚 Eggs (30–35)</span><span class="bitem-cost">Rs 235</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="69"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:var(--teal)"></div><span class="bitem-name">🥛 Curd (2 kg)</span><span class="bitem-cost">Rs 165</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="49"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:#38bdf8"></div><span class="bitem-name">🥥 Coconut water (7)</span><span class="bitem-cost">Rs 130</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="38"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:#a78bfa"></div><span class="bitem-name">🫐 Amla juice (500ml)</span><span class="bitem-cost">Rs 85</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="25"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:var(--sun)"></div><span class="bitem-name">🧇 Rolled oats (280g)</span><span class="bitem-cost">Rs 55</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="16"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:#4ade80"></div><span class="bitem-name">🍉 Watermelon+Muskmelon (2–3 kg)</span><span class="bitem-cost">Rs 50</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="15"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:var(--muted)"></div><span class="bitem-name">🫙 Vegetables (ghiya+bhindi+tori+baingan)</span><span class="bitem-cost">Rs 80</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="24"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:rgba(232,244,242,.4)"></div><span class="bitem-name">🧅 Onion+tomato+capsicum+cucumber</span><span class="bitem-cost">Rs 90</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="26"></div></div></div>
+      <div class="bitem"><div class="bitem-dot" style="background:rgba(249,115,22,.4)"></div><span class="bitem-name">🫘 Masoor dal (500g) + Moong dal (250g)</span><span class="bitem-cost">Rs 75</span><div class="bitem-bar-wrap"><div class="bitem-bar" data-w="22"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IRON SOURCES -->
+<section class="section" style="background:var(--bg2);max-width:100%;padding:5rem 0">
+  <div style="max-width:1400px;margin:0 auto;padding:0 3rem">
+    <div class="chip">Iron Strategy</div>
+    <h2 class="section-title">Iron Without Daily Palak</h2>
+    <p class="section-sub">Palak is 1x/week on Friday only. Iron comes from these sources daily — targeting ~12–15mg/day</p>
+    <div class="reveal">
+      <table class="iron-table">
+        <thead><tr><th>Source</th><th>Iron/serving</th><th>When</th><th>Absorption Boost</th></tr></thead>
+        <tbody>
+          <tr><td class="iron-source">Masoor dal (150g cooked)</td><td class="iron-mg">~3.5 mg</td><td class="iron-when">4x/week at lunch</td><td class="iron-boost">Lemon squeeze mandatory</td></tr>
+          <tr><td class="iron-source">Egg yolks (2 daily)</td><td class="iron-mg">~1.2 mg</td><td class="iron-when">Daily in breakfast</td><td class="iron-boost">Amla juice at same meal</td></tr>
+          <tr><td class="iron-source">Chicken breast (200g)</td><td class="iron-mg">~1.0 mg heme iron</td><td class="iron-when">Daily</td><td class="iron-boost">Best absorbed iron type (heme)</td></tr>
+          <tr><td class="iron-source">Methi bhurji (2x/week)</td><td class="iron-mg">~2.0 mg/serving</td><td class="iron-when">Tue + Thu breakfast</td><td class="iron-boost">Amla juice + lemon</td></tr>
+          <tr><td class="iron-source">Pumpkin seeds in seed mix</td><td class="iron-mg">~1.5 mg/tbsp</td><td class="iron-when">Daily in seed mix</td><td class="iron-boost">Vitamin C from any fruit</td></tr>
+          <tr><td class="iron-source">Amla juice (15ml daily)</td><td class="iron-mg">0 mg — boosts 3x</td><td class="iron-when">Every morning</td><td class="iron-boost">Non-negotiable multiplier</td></tr>
+          <tr><td class="iron-source">Palak dal (Friday lunch)</td><td class="iron-mg">~6.0 mg</td><td class="iron-when">1x/week</td><td class="iron-boost">Lemon + amla</td></tr>
+          <tr><td class="iron-source" style="font-weight:600">Total daily estimate</td><td class="iron-mg" style="color:var(--teal2)">~12–15 mg/day</td><td class="iron-when">—</td><td class="iron-boost">Close to 17mg RDA with doctor's supplement</td></tr>
+        </tbody>
+      </table>
+      <div class="alert warn mt-3">
+        <strong>💉 Doctor visit is overdue — Iron Deficiency confirmed April 11</strong>
+        By June, a doctor should have prescribed Ferrous Ascorbate (60–100mg absorbable iron/day). That alone resolves deficiency in 8–12 weeks. Diet iron alone is insufficient to correct confirmed deficiency. Book an appointment this week.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPLEMENTS -->
+<section id="supps" class="section">
+  <div class="chip">Stack</div>
+  <h2 class="section-title">Supplement Protocol</h2>
+  <p class="section-sub">Timing is everything — Iron + Calcium conflict means HK Vitals must be away from curd</p>
+  <div class="supp-timeline reveal">
+    <div class="supp-item">
+      <div class="supp-dot">🦠</div>
+      <div class="supp-body">
+        <div class="supp-time">8:00 PM — with dinner curd</div>
+        <div class="supp-name">Good Monk Nutrition Mix</div>
+        <div class="supp-dose">2 sachets</div>
+        <div class="supp-rule">Mix in 150g curd only. Prebiotics + probiotics + adaptogens. Non-negotiable daily.</div>
+      </div>
+    </div>
+    <div class="supp-item">
+      <div class="supp-dot">🐟</div>
+      <div class="supp-body">
+        <div class="supp-time">8:00 PM — with dinner</div>
+        <div class="supp-name">WOW Omega-3 Fish Oil</div>
+        <div class="supp-dose">2 capsules (EPA 1,100mg + DHA 700mg)</div>
+        <div class="supp-rule">With food for absorption. Critical for Triglycerides 175 → target &lt;150. Anti-inflammatory for HsCRP.</div>
+      </div>
+    </div>
+    <div class="supp-item">
+      <div class="supp-dot">🌾</div>
+      <div class="supp-body">
+        <div class="supp-time">9:30 PM — NOT 11 PM</div>
+        <div class="supp-name">Isabgol (Psyllium Husk)</div>
+        <div class="supp-dose">1 tsp in 300ml water</div>
+        <div class="supp-rule">NOT juice — plain water only. Early timing avoids overnight bloat. LDL ↓ + fibre + gut motility.</div>
+      </div>
+    </div>
+    <div class="supp-item">
+      <div class="supp-dot">💊</div>
+      <div class="supp-body">
+        <div class="supp-time">10:00 PM — NOT with dairy</div>
+        <div class="supp-name">HK Vitals Multivitamin</div>
+        <div class="supp-dose">1 tablet</div>
+        <div class="supp-rule" style="color:#fca5a5">⚠️ NOT within 2 hours of curd, milk, or paneer. Calcium directly blocks iron absorption from this supplement.</div>
+      </div>
+    </div>
+    <div class="supp-item">
+      <div class="supp-dot">🧲</div>
+      <div class="supp-body">
+        <div class="supp-time">11:30 PM</div>
+        <div class="supp-name">Magnesium Glycinate</div>
+        <div class="supp-dose">1 tablet (220mg elemental)</div>
+        <div class="supp-rule">With water only. Sleep quality + insulin sensitivity. Best sleep supplement in summer heat.</div>
+      </div>
+    </div>
+    <div class="supp-item">
+      <div class="supp-dot">☀️</div>
+      <div class="supp-body">
+        <div class="supp-time">Weekly — with dinner (fatty meal)</div>
+        <div class="supp-name">Vitamin D3</div>
+        <div class="supp-dose">60,000 IU weekly</div>
+        <div class="supp-rule">Fat-soluble — must be taken with a meal containing fat for proper absorption. Still insufficient at 68.7 nmol/L.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BATCH PREP -->
+<section class="section" style="background:var(--bg2);max-width:100%;padding:5rem 0">
+  <div style="max-width:1400px;margin:0 auto;padding:0 3rem">
+    <div class="chip">Efficiency</div>
+    <h2 class="section-title">Sunday Batch Prep — 55 Min Once a Week</h2>
+    <p class="section-sub">Saves ~35 min every single day · Pre-cook once, eat well all week</p>
+    <div class="batch-grid reveal">
+      <div class="batch-card"><div class="batch-icon">🥚</div><div class="batch-task">Boil 6 eggs</div><div class="batch-time">⏱ 10 min hands-off</div><div class="batch-method">Boil, cool, fridge unpeeled. Covers 3–4 days of snacks and breakfasts.</div></div>
+      <div class="batch-card"><div class="batch-icon">🍗</div><div class="batch-task">Marinate 3–4 chicken portions (600–800g)</div><div class="batch-time">⏱ 12 min</div><div class="batch-method">Different marinade each portion, individual bags. Fridge 3 days, freezer 7 days. Covers 3–4 dinners + lunches.</div></div>
+      <div class="batch-card"><div class="batch-icon">🫘</div><div class="batch-task">Cook masoor dal (2 cups dry)</div><div class="batch-time">⏱ 12 min (pressure cooker)</div><div class="batch-method">3 whistles + turmeric + salt. Store in fridge. 3–4 servings ready to heat. Use Tue, Wed, Thu, Fri lunches.</div></div>
+      <div class="batch-card"><div class="batch-icon">🧅</div><div class="batch-task">Pre-cut onion + tomato + capsicum</div><div class="batch-time">⏱ 10 min</div><div class="batch-method">Airtight containers in fridge. Ready for all breakfasts and 3 days of cooking.</div></div>
+      <div class="batch-card"><div class="batch-icon">🍆</div><div class="batch-task">Roast baingan (if baingan bharta this week)</div><div class="batch-time">⏱ 10 min</div><div class="batch-method">Direct flame both sides, peel, store mashed. Ready to use for 2 days (Thu dinner + wherever needed).</div></div>
+      <div class="batch-card"><div class="batch-icon">🪔</div><div class="batch-task">Pre-roast makhana (100g)</div><div class="batch-time">⏱ 8 min</div><div class="batch-method">Dry tawa, rock salt + pepper. Airtight jar at room temp. Snacks for the whole week.</div></div>
+      <div class="batch-card"><div class="batch-icon">🫘</div><div class="batch-task">Soak rajma (Friday night only)</div><div class="batch-time">⏱ 2 min</div><div class="batch-method">50g rajma in water overnight. Ready to pressure cook Saturday morning for the refeed lunch.</div></div>
+    </div>
+    <div class="alert info mt-3"><strong>💡 Time saved:</strong> 55 min Sunday = saves ~35 min every day. Means 0 excuses on weekdays. Everything ready to cook in under 15 min per meal.</div>
+  </div>
+</section>
+
+<!-- PROGRESS CHART -->
+<section id="progress" class="section">
+  <div class="chip">Forecast</div>
+  <h2 class="section-title">Weight Loss Projections</h2>
+  <p class="section-sub">0.7–0.8 kg/week on diet alone · 0.9 kg/week with 30 min morning walk · 90 kg by November 2026</p>
+  <div class="proj-cards stagger reveal">
+    <div class="proj-card"><div class="proj-month">Jun 2026</div><div class="proj-weight" data-count="106.5">110</div><div class="proj-loss">~3–4 kg lost</div></div>
+    <div class="proj-card"><div class="proj-month">Jul 2026</div><div class="proj-weight">103.5</div><div class="proj-loss">~3 kg lost</div></div>
+    <div class="proj-card"><div class="proj-month">Aug 2026</div><div class="proj-weight">100</div><div class="proj-loss">Sub-100 🎉</div></div>
+    <div class="proj-card"><div class="proj-month">Sep 2026</div><div class="proj-weight">97</div><div class="proj-loss">~3 kg lost</div></div>
+    <div class="proj-card"><div class="proj-month">Oct 2026</div><div class="proj-weight">93</div><div class="proj-loss">Final push</div></div>
+    <div class="proj-card goal"><div class="proj-month">Nov 2026 🎯</div><div class="proj-weight" style="background:linear-gradient(135deg,var(--gold),var(--sun));-webkit-background-clip:text;-webkit-text-fill-color:transparent">90</div><div class="proj-loss">GOAL ACHIEVED</div></div>
+  </div>
+  <div class="chart-wrap reveal mt-4">
+    <canvas id="projChart" height="100" role="img" aria-label="Weight projection chart from 110kg to 90kg over 22 weeks"></canvas>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist" class="section" style="background:var(--bg2);max-width:100%;padding:6rem 0">
+  <div style="max-width:1400px;margin:0 auto;padding:0 3rem">
+    <div class="chip">Daily Habits</div>
+    <h2 class="section-title">Daily Non-Negotiable Checklist</h2>
+    <p class="section-sub">Click to track — every single one matters for your blood markers</p>
+    <div class="check-score">
+      <div class="score-num" id="scoreNum">0/20</div>
+      <div class="score-label">tasks completed today</div>
+    </div>
+    <div class="checklist-grid" id="checkGrid"></div>
+    <div class="alert gold mt-3"><strong>💡 The compounding effect</strong> Every kg lost = less fat-driven inflammation → lower uric acid → better lipids → better insulin sensitivity. The diet IS the treatment — weight loss is literally what heals your blood markers.</div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section id="doctor" class="section">
+  <div class="chip" style="color:#ef4444">⚠️ Overdue</div>
+  <h2 class="section-title">Doctor Actions — Overdue</h2>
+  <p class="section-sub">These 3 visits are not optional — blood report was April 11, it is now June</p>
+  <div class="doc-cards reveal">
+    <div class="doc-card"><div class="doc-icon">🔴</div><div class="doc-title">ALT (SGPT) 95.2 — Gastroenterologist</div><div class="doc-detail">Show to GP or Gastroenterologist. May need abdominal ultrasound to confirm NAFLD. 6+ weeks overdue. This visit is the most urgent.</div></div>
+    <div class="doc-card"><div class="doc-icon">🔴</div><div class="doc-title">Uric Acid 8.53 — Doctor Consultation</div><div class="doc-detail">Doctor may start Febuxostat or Allopurinol if level hasn't improved. Diet alone may not be sufficient at 8.53 mg/dL.</div></div>
+    <div class="doc-card"><div class="doc-icon">🔴</div><div class="doc-title">Iron Deficiency — Prescription Needed</div><div class="doc-detail">Doctor will prescribe Ferrous Ascorbate (60–100mg absorbable iron/day). Resolves deficiency in 8–12 weeks. Diet alone insufficient to correct confirmed anaemia.</div></div>
+  </div>
+  <div class="alert warn mt-3">
+    <strong>📅 Retest due ASAP if not done</strong>
+    Uric Acid + ALT + Iron + Vitamin D. Was due 6 weeks after April 11 = late May. It is now June. Book immediately.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Summer Diet Plan — Version 5 · <span>June 2026</span> · Wheat roti only · 4–6 eggs/day · Palak 1x/week · Budget Rs 5,800–6,400/month</p>
+  <p style="margin-top:.5rem">20 kg goal by November 2026 · Calorie cycling · Summer cooling foods · Designed for <span>Manmeet</span> ☀️</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ── LOADER ──
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('out')},2000)});
+
+// ── CURSOR ──
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animCur(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(animCur)})();
+
+// ── HERO THREE.JS PARTICLES ──
+(function(){
+  const c=document.getElementById('heroCanvas');
+  if(!c||!window.THREE)return;
+  const W=c.parentElement.clientWidth,H=c.parentElement.clientHeight;
+  const renderer=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(W,H);
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(60,W/H,.1,1000);
+  camera.position.z=5;
+  // Particles
+  const N=4000,pos=new Float32Array(N*3),col=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const phi=Math.acos(2*Math.random()-1),theta=2*Math.PI*Math.random();
+    const r=1.5+Math.random()*2;
+    pos[i*3]=r*Math.sin(phi)*Math.cos(theta);
+    pos[i*3+1]=r*Math.sin(phi)*Math.sin(theta);
+    pos[i*3+2]=r*Math.cos(phi);
+    // Orange → gold color range
+    const t=Math.random();
+    col[i*3]=.9+t*.1;col[i*3+1]=.4+t*.4;col[i*3+2]=t*.2;
+  }
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const pts=new THREE.Points(geo,new THREE.PointsMaterial({size:.04,vertexColors:true,transparent:true,opacity:.75}));
+  scene.add(pts);
+  // Inner glow sphere wireframe
+  const sg=new THREE.SphereGeometry(1.2,24,24);
+  scene.add(new THREE.Mesh(sg,new THREE.MeshBasicMaterial({color:0xf97316,wireframe:true,transparent:true,opacity:.05})));
+  // Floating orbs
+  const orbs=[];
+  for(let i=0;i<20;i++){
+    const og=new THREE.SphereGeometry(.04+Math.random()*.07,8,8);
+    const om=new THREE.MeshBasicMaterial({color:i%3===0?0xf97316:i%3===1?0xeab308:0x14b8a6,transparent:true,opacity:.5});
+    const o=new THREE.Mesh(og,om);
+    o.position.set((Math.random()-.5)*7,(Math.random()-.5)*5,(Math.random()-.5)*3);
+    o.userData={oy:o.position.y,sp:.001+Math.random()*.002,off:Math.random()*Math.PI*2};
+    scene.add(o);orbs.push(o);
+  }
+  let tx=0,ty=0,t=0;
+  document.addEventListener('mousemove',e=>{tx=(e.clientX/innerWidth-.5)*.4;ty=(e.clientY/innerHeight-.5)*.4});
+  (function anim(){
+    requestAnimationFrame(anim);t+=.005;
+    pts.rotation.y=t*.25;pts.rotation.x=t*.08;
+    camera.position.x+=(tx-camera.position.x)*.04;
+    camera.position.y+=(-ty-camera.position.y)*.04;
+    camera.lookAt(0,0,0);
+    orbs.forEach(o=>{o.position.y=o.userData.oy+Math.sin(t*200*o.userData.sp+o.userData.off)*.25;o.rotation.x+=o.userData.sp;o.rotation.y+=o.userData.sp*.7});
+    renderer.render(scene,camera);
+  })();
+  addEventListener('resize',()=>{
+    const nW=c.parentElement.clientWidth,nH=c.parentElement.clientHeight;
+    renderer.setSize(nW,nH);camera.aspect=nW/nH;camera.updateProjectionMatrix();
+  });
+})();
+
+// ── COUNT UP ──
+function countUp(el,target,dec=0,dur=1400){
+  const start=performance.now();
+  const isStr=typeof target==='string';
+  if(isStr){el.textContent=target;return}
+  (function u(now){
+    const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3),v=target*ease;
+    el.textContent=dec?v.toFixed(dec):Math.round(v);
+    if(p<1)requestAnimationFrame(u);else el.textContent=dec?target.toFixed(dec):target;
+  })(start);
+}
+
+// ── MACRO RINGS ──
+function drawRing(id,pct,color){
+  const c=document.getElementById(id);if(!c)return;
+  const ctx=c.getContext('2d'),cx=60,cy=60,r=48,lw=11;
+  ctx.clearRect(0,0,120,120);
+  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,.07)';ctx.lineWidth=lw;ctx.stroke();
+  if(pct>0){
+    ctx.beginPath();ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*pct);
+    ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.lineCap='round';ctx.stroke();
+  }
+}
+
+// ── CALORIE BARS ANIMATION ──
+function animCalBars(){
+  document.querySelectorAll('.cal-bar[data-h]').forEach(bar=>{
+    const maxH=220;
+    bar.style.height=(parseFloat(bar.dataset.h)/100*maxH)+'px';
+  });
+}
+
+// ── BUDGET DONUT ──
+function drawBudgetDonut(){
+  const c=document.getElementById('budgetDonut');if(!c)return;
+  const ctx=c.getContext('2d'),cx=100,cy=100,r=80,lw=20;
+  const data=[
+    {v:340,c:'#ef4444'},{v:235,c:'#eab308'},{v:165,c:'#14b8a6'},
+    {v:130,c:'#38bdf8'},{v:85,c:'#a78bfa'},{v:55,c:'#f97316'},
+    {v:50,c:'#4ade80'},{v:80,c:'#6b8fa8'},{v:90,c:'rgba(232,244,242,.3)'},
+    {v:75,c:'rgba(249,115,22,.4)'}
+  ];
+  const total=data.reduce((a,b)=>a+b.v,0);
+  let angle=-Math.PI/2;
+  data.forEach(d=>{
+    const arc=Math.PI*2*(d.v/total);
+    ctx.beginPath();ctx.arc(cx,cy,r,angle,angle+arc-.02);
+    ctx.strokeStyle=d.c;ctx.lineWidth=lw;ctx.lineCap='butt';ctx.stroke();
+    angle+=arc;
+  });
+}
+
+// ── PROJECTION CHART ──
+function drawProjChart(){
+  const c=document.getElementById('projChart');if(!c)return;
+  new Chart(c,{
+    type:'line',
+    data:{
+      labels:['May 28','Jun','Jul','Aug','Sep','Oct','Nov 1'],
+      datasets:[
+        {label:'Diet Only',data:[110,107,104,100.5,97.5,93.5,90],
+          borderColor:'#f97316',backgroundColor:'rgba(249,115,22,.07)',
+          pointBackgroundColor:'#f97316',pointBorderColor:'#050a0e',
+          pointBorderWidth:2,pointRadius:5,fill:true,tension:.4},
+        {label:'With 30min Walk',data:[110,106.5,103,99,96,92,88.5],
+          borderColor:'#14b8a6',backgroundColor:'rgba(20,184,166,.05)',
+          pointBackgroundColor:'#14b8a6',pointBorderColor:'#050a0e',
+          pointBorderWidth:2,pointRadius:4,fill:false,tension:.4,borderDash:[0,0]},
+        {label:'Goal 90kg',data:[90,90,90,90,90,90,90],
+          borderColor:'rgba(234,179,8,.4)',borderDash:[6,4],pointRadius:0,fill:false}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{labels:{color:'#6b8fa8',font:{size:12,family:'Outfit'}}},
+        tooltip:{backgroundColor:'#0d1824',titleColor:'#f97316',bodyColor:'#e8f4f2',
+          borderColor:'rgba(249,115,22,.25)',borderWidth:1,
+          callbacks:{label:c=>c.dataset.label+': '+c.raw+' kg'}}
+      },
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#6b8fa8',font:{family:'JetBrains Mono',size:11}}},
+        y:{min:85,max:112,grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#6b8fa8',font:{family:'JetBrains Mono',size:11},callback:v=>v+' kg'}}
+      }
+    }
+  });
+}
+
+// ── CHECKLIST ──
+const checks=[
+  "☀️ Sunlight 10–10:30 AM (15–20 min — Vitamin D + hair)",
+  "🍋 Warm lemon water on waking (uric acid flush)",
+  "🫐 15ml amla juice with breakfast (iron + Vit C)",
+  "🥥 1 coconut water before 1 PM (electrolytes)",
+  "🟡 Turmeric + black pepper in every cooked dish",
+  "🧄 Garlic in every chicken / dal / sabzi",
+  "🍋 Lemon squeezed on dal + sabzi + salad",
+  "🥚 Minimum 2 whole egg yolks (biotin for hair)",
+  "🫚 1 tbsp mixed seeds (pumpkin+flax+sunflower)",
+  "🥜 Max 5 almonds total across all meals",
+  "🥛 Chaas after lunch daily (cooling + probiotic)",
+  "💧 4L+ water — 70% before 5:30 PM",
+  "❌ NO soup at dinner",
+  "🧂 Minimum salt at dinner",
+  "🥒 Ghiya/lauki at dinner (3–4×/week — diuretic)",
+  "🦠 Good Monk 2 sachets in dinner curd",
+  "🐟 Omega-3 with dinner",
+  "🌾 Isabgol 9:30 PM in 300ml water",
+  "💊 HK Vitals 10 PM — NOT with dairy",
+  "🧲 Magnesium 11:30 PM",
+];
+const grid=document.getElementById('checkGrid');
+let checked=new Set();
+checks.forEach((text,i)=>{
+  const div=document.createElement('div');
+  div.className='check-item clickable';
+  div.innerHTML=`<div class="check-box" id="cb${i}"></div><span class="check-text">${text}</span>`;
+  div.addEventListener('click',()=>{
+    if(checked.has(i)){checked.delete(i);div.classList.remove('checked');document.getElementById('cb'+i).textContent=''}
+    else{checked.add(i);div.classList.add('checked');document.getElementById('cb'+i).textContent='✓'}
+    document.getElementById('scoreNum').textContent=checked.size+'/'+checks.length;
+  });
+  grid.appendChild(div);
+});
+
+// ── BUDGET BARS ──
+function animBudgetBars(){
+  document.querySelectorAll('.bitem-bar[data-w]').forEach(b=>{b.style.width=b.dataset.w+'%'});
+}
+
+// ── MILESTONE BARS ──
+function animMsBars(){
+  document.querySelectorAll('.ms-bar[data-w]').forEach(b=>{
+    b.style.width=(b.dataset.w||0)+'%';
+  });
+}
+
+// ── MEAL TABS ──
+function switchMeal(id,btn){
+  document.querySelectorAll('.meal-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.meal-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── INTERSECTION OBSERVER ──
+let calAnimated=false,ringsDrawn=false,budgetAnimated=false,barsAnimated=false;
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('visible');
+    // Count-up on hero stats
+    e.target.querySelectorAll('[data-count]').forEach(el=>{
+      countUp(el,parseFloat(el.dataset.count));
+    });
+    // cal bars
+    if(e.target.closest('#calories')&&!calAnimated){calAnimated=true;setTimeout(animCalBars,200)}
+    // macro rings
+    if(e.target.closest('#calories')&&!ringsDrawn){
+      ringsDrawn=true;
+      setTimeout(()=>{
+        drawRing('r_prot',.93,'#2dd4bf');
+        drawRing('r_carb',.82,'#fde047');
+        drawRing('r_fat',.88,'#f97316');
+        drawRing('r_fib',.75,'#a78bfa');
+        drawRing('r_water',1,'#38bdf8');
+      },300);
+    }
+    // budget
+    if(e.target.closest('#budget')&&!budgetAnimated){budgetAnimated=true;setTimeout(()=>{drawBudgetDonut();animBudgetBars()},200)}
+    // ms bars
+    if(!barsAnimated&&e.target.closest('#goal')){barsAnimated=true;setTimeout(animMsBars,300)}
+    io.unobserve(e.target);
+  });
+},{threshold:.08});
+
+document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+
+// ── HERO COUNT-UP ──
+setTimeout(()=>{
+  document.querySelectorAll('.hstat-num[data-count]').forEach(el=>countUp(el,parseFloat(el.dataset.count)));
+},2200);
+
+// ── DRAW CHARTS ──
+setTimeout(()=>{drawProjChart()},800);
+
+// ── NAV ACTIVE STATE ON SCROLL ──
+const sections=['hero','goal','blood','calories','meals','weekly','budget','checklist'];
+window.addEventListener('scroll',()=>{
+  const sy=scrollY;
+  document.querySelector('nav').style.background=sy>60?'rgba(5,10,14,.95)':'rgba(5,10,14,.82)';
+  sections.forEach(id=>{
+    const sec=document.getElementById(id)||document.getElementById('weekly');
+    if(!sec)return;
+    const top=sec.offsetTop-120,bot=top+sec.offsetHeight;
+    const link=document.querySelector(`.nav-links a[href="#${id}"]`);
+    if(link)link.classList.toggle('active',sy>=top&&sy<bot);
+  });
+  // Parallax hero
+  const hc=document.querySelector('.hero-inner');
+  if(hc)hc.style.transform=`translateY(${sy*.2}px)`;
+});
+
+// ── 3D TILT on blood cards ──
+document.querySelectorAll('.bcard,.goal-card,.meal-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(600px) rotateX(${-y*8}deg) rotateY(${x*8}deg) translateY(-2px)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='perspective(600px) rotateX(0) rotateY(0) translateY(0)'});
+});
+</script>
+</body>
+</html>
